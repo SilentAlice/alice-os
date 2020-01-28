@@ -1,0 +1,21 @@
+# generated files
+*.o
+*.bin
+*.elf
+*.a
+*.so
+
+# tags and logs
+tags
+filenametags
+.ctags
+cscope.out
+*.log
+*.out
+
+# objdumped asm file
+*.dump.asm
+.gdbinit
+
+# scripts
+*.sh
