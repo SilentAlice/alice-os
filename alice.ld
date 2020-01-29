@@ -1,12 +1,12 @@
-ENTRY(entry)
+INCLUDE linker.ld
 
-start_address = 0x0;
+ENTRY(entry)
 
 SECTIONS
 {
-	. = 0x80000000 + start_address;
+	. = kernel_start_address;
 
-	.text : AT(start_address) { *(.text) }
+	.text : AT(kernel_load_address) { *(.text) }
 	PROVIDE(etext = .);
 
 	.stab : {

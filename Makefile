@@ -31,7 +31,7 @@ include plat/$(PLAT)/build.mk
 all: $(OS).bin
 
 $(OS).bin: $(OBJS) $(OS).ld
-	$(LD) -T $(OS).ld $(OBJS) -o $(OS).elf
+	$(LD) -L plat/$(PLAT) -T $(OS).ld $(OBJS) -o $(OS).elf
 	$(OBJCOPY) -O binary $(OS).elf $(OS).bin
 	$(OBJDUMP) -D $(OS).elf > $(OS).dump.asm
 
