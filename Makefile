@@ -22,15 +22,18 @@ CFLAGS = $(PLAT_CFLAGS) $(ARCH_CFLAGS) -gstabs \
          -Wall -Wextra -Wno-overlength-strings \
          -fno-builtin-printf -fno-builtin-strcpy -fno-builtin-exit \
          -I kernel/include \
+         -I arch/$(ARCH)/include \
          -I plat/$(PLAT)/include
 
 ASFLAGS = -mcpu=$(CPU) -g \
           -I kernel/include \
+          -I arch/$(ARCH)/include \
           -I plat/$(PLAT)/include
 
 OBJS :=
 
 include plat/$(PLAT)/build.mk
+include arch/$(ARCH)/build.mk
 include kernel/build.mk
 
 all: $(OS).bin

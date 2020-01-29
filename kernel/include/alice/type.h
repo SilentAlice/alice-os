@@ -3,10 +3,13 @@
  * Author: SilentAlice <https://www.silentming.net>
  * Create:  Wed Jan 29 17:45:38 2020
  */
-#include <alice/type.h>
-#include <alice/compiler.h>
 
-void init(pa_t kernel_load_address)
-{
-	asm volatile(".word 0xdeadbeef");
-}
+#ifndef ALICE_TYPE_H
+#define ALICE_TYPE_H
+
+#include <arch/type.h>
+
+typedef uintptr_t pa_t;
+typedef void * va_t;
+
+#endif

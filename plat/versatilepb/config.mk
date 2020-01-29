@@ -1,5 +1,6 @@
-ARCH := arm
+include arch/arm/config.mk
+
 CPU := arm926ej-s
-ARCH_CFLAGS := -mcpu=$(CPU) -marm -mapcs-frame
+PLAT_CFLAGS := -mcpu=$(CPU)
 
 PLAT_QEMU_FLAGS := -M $(PLAT) -cpu arm926 -m 256M
