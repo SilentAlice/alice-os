@@ -4,12 +4,9 @@
  * Create:  Wed Jan 29 17:45:38 2020
  */
 
-#ifndef ALICE_COMPILER_H
-#define ALICE_COMPILER_H
+#ifndef ALICE_SYSREG_H
+#define ALICE_SYSREG_H
 
-#include <arch/compiler.h>
-
-#define asm __asm__
-#define volatile __volatile__
+#include <arch/sysreg.h>
 
 #endif
