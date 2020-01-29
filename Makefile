@@ -17,16 +17,21 @@ OBJCOPY = $(COMPILE_PREFIX)objcopy
 OBJDUMP = $(COMPILE_PREFIX)objdump
 
 # flags
-CFLAGS = $(ARCH_CFLAGS) -gstabs \
+CFLAGS = $(PLAT_CFLAGS) $(ARCH_CFLAGS) -gstabs \
          -std=c99 -pedantic -msoft-float -fPIC \
          -Wall -Wextra -Wno-overlength-strings \
-         -fno-builtin-printf -fno-builtin-strcpy -fno-builtin-exit
+         -fno-builtin-printf -fno-builtin-strcpy -fno-builtin-exit \
+         -I kernel/include \
+         -I plat/$(PLAT)/include
 
-ASFLAGS = -mcpu=$(CPU) -g
+ASFLAGS = -mcpu=$(CPU) -g \
+          -I kernel/include \
+          -I plat/$(PLAT)/include
 
 OBJS :=
 
 include plat/$(PLAT)/build.mk
+include kernel/build.mk
 
 all: $(OS).bin
 
