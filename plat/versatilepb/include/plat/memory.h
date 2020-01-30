@@ -8,7 +8,8 @@
 #define PLAT_VERSATILEPB_MEMORY_H
 
 /* should change this with plat/linker.ld */
-#define KERNEL_START_ADDRESS	0x80000000
+#define KERNEL_START_VADDR	0x80000000
+#define KERNEL_LOAD_PADDR	0x00010000
 
 #ifndef __ASSEMBLY__
 

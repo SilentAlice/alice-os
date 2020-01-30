@@ -2,13 +2,11 @@
 
 .global entry
 entry:
-	# get load address
-	mov r0, pc
-	sub r0, r0, #8
+	ldr r0, =#KERNEL_LOAD_PADDR
 
 	# calculate real stack address
 	ldr r1, =#kernel_stack_start
-	sub r1, r1, #KERNEL_START_ADDRESS
+	sub r1, r1, #KERNEL_START_VADDR
 	add r1, r1, r0
 
 	# set stack

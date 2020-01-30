@@ -8,7 +8,7 @@
 #include <alice/sysreg.h>
 #include <alice/compiler.h>
 
-void init(pa_t kernel_load_address)
+void init(void)
 {
 	uint32_t val;
 

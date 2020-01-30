@@ -11,6 +11,6 @@
 
 #include <alice/type.h>
 
-void init(pa_t kernel_load_address);
+void init(void);
 
 #endif
