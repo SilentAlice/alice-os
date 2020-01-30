@@ -11,5 +11,6 @@
 
 #define asm __asm__
 #define volatile __volatile__
+#define noreturn __attribute__((noreturn))
 
 #endif

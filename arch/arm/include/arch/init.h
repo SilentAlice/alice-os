@@ -7,8 +7,9 @@
 #ifndef ARCH_ARM_INIT_H
 #define ARCH_ARM_INIT_H
 
-#include <alice/type.h>
 #include <plat/config.h>
+
+#include <alice/type.h>
 #include <alice/memory.h>
 
 void arch_init(void);

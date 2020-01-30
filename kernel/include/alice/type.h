@@ -10,6 +10,6 @@
 #include <arch/type.h>
 
 typedef uintptr_t pa_t;
-typedef void * va_t;
+typedef uintptr_t va_t;
 
 #endif
