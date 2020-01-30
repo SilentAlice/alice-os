@@ -10,10 +10,14 @@
 
 void init(pa_t kernel_load_address)
 {
-	uint32_t sctlr;
-	sysreg_read32(SCTLR, sctlr);
-	sysreg_write32(SCTLR, sctlr);
+	uint32_t val;
 
-	asm volatile("mov r3, %0" : "=r" (sctlr));
+	arch_init();
+
+	sysreg_read32(SCTLR, val);
+	asm volatile("mov r5, %0" : "=r" (val));
+	sysreg_read32(TTBR0, val);
+	asm volatile("mov r6, %0" : "=r" (val));
+
 	asm volatile(".word 0xdeadbeef");
 }

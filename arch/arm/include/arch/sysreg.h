@@ -10,7 +10,14 @@
 #include <arch/type.h>
 #include <alice/compiler.h>
 
-#define SCTLR	"0, %0, c1, c0, 0"
+#define SCTLR			"0, %0, c1, c0, 0"
+#define SCTLR_M			(0x1 << 0)		/* enable MMU */
+
+#define TTBR0			"0, %0, c2, c0, 0"
+
+#define TTBR1			"0, %0, c2, c0, 1"
+#define TTBCR			"0, %0, c2, c0, 2"
+#define TTBCR_N			(0x7)
 
 #define sysreg_read32(name, var) do {				\
 	uint32_t __val;						\
