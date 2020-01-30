@@ -10,14 +10,6 @@
 
 void init(void)
 {
-	uint32_t val;
-
 	arch_init();
-
-	sysreg_read32(SCTLR, val);
-	asm volatile("mov r5, %0" : "=r" (val));
-	sysreg_read32(TTBR0, val);
-	asm volatile("mov r6, %0" : "=r" (val));
-
 	asm volatile(".word 0xdeadbeef");
 }

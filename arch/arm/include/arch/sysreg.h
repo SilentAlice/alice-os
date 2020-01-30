@@ -12,6 +12,7 @@
 
 #define SCTLR			"0, %0, c1, c0, 0"
 #define SCTLR_M			(0x1 << 0)		/* enable MMU */
+#define DACR			"0, %0, c3, c0, 0"
 
 #define TTBR0			"0, %0, c2, c0, 0"
 
