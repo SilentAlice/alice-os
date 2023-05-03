@@ -6,7 +6,12 @@ SECTIONS
 {
 	. = kernel_start_address;
 
-	.text : AT(kernel_load_address) { *(.text) }
+	.text : AT(kernel_load_address) {
+		*(.text)
+		. = ALIGN(16384);
+		PROVIDE(kernel_vector_start = .);
+		*(.vector)
+	}
 	PROVIDE(etext = .);
 
 	.stab : {
@@ -23,18 +28,16 @@ SECTIONS
 		BYTE(0);
 	}
 
-	.data : { *(.data) }
+	.data : {
+		*(.data)
+		. = ALIGN(4096);
+		PROVIDE(kernel_stack_start = .);
+		*(.stack);
+		PROVIDE(ekernel_stack_start = .);
+	}
+
 	PROVIDE(edata = .);
 
 	.bss : { *(.bss COMMON) }
-	. = ALIGN(4096);
-
-	.stack : {
-		*(.stack);
-	}
-	kernel_stack_start = .;
-
-	PROVIDE(ekernel_stack_start = .);
-
 	PROVIDE(kernel_end = .);
 }

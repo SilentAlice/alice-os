@@ -1,0 +1,2 @@
+.align
+.section ".vector"
